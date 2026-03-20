@@ -1,17 +1,12 @@
-import './globals.css';
-import { Providers } from './providers';
-import { Inter, Libre_Baskerville } from 'next/font/google';
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { Providers } from "./providers"; // Pastikan path ini benar
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
-const baskerville = Libre_Baskerville({ 
-  weight: ['400', '700'], 
-  subsets: ['latin'], 
-  variable: '--font-baskerville' 
-});
+const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
-  title: 'Enshrined | Fair Mint on Tempo',
-  description: 'Minting portal for ENSH tokens',
+export const metadata: Metadata = {
+  title: "Enshrined Mint",
 };
 
 export default function RootLayout({
@@ -21,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${baskerville.variable} font-sans`}>
+      <body className={inter.className}>
         <Providers>{children}</Providers>
       </body>
     </html>
